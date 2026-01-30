@@ -1,0 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package estructura_de_datos_2.tarea_arboles_binarios_de_busqueda;
+
+/**
+ *
+ * @author Admin
+ */
+public class Tarea_Arboles_Binarios_de_Busqueda {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
