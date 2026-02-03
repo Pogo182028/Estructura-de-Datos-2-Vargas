@@ -33,11 +33,12 @@ public class Lista {
     public String toString() {
         String s1 = "[";
         Nodo p = prim;
-        while (p.prox != null) {
+        while (p != null) {
             s1 = s1 + p.elem;
             if (p.prox != null) {
                 s1 = s1 + ", ";
             }
+            p = p.prox;
         }
         return s1 + "]";
     }
@@ -139,4 +140,113 @@ public class Lista {
         p.prox.ant = p.ant;
         cantElem--;
     }
+
+    // 1. insertar o consultas
+    // #1
+    public void insertarLugarAsc(int x) {
+        Nodo p = prim;
+        int i = 0;
+        while (p != null && p.elem < x) {
+            p = p.prox;
+            i++;
+        }
+        insertarIesimo(x, i);
+    }
+
+    // #2
+    public void generarAsc(int n, int a, int b) {
+        for (int i = 0; i < n; i++) {
+            int x = a + (int) (Math.random() * (b - a + 1));
+            insertarLugarAsc(x);
+        }
+    }
+
+    // #3
+    public void insertarPrimNVeces(int x, int n) {
+        for (int i = 0; i < n; i++) {
+            insertarPrim(x);
+        }
+    }
+
+    // #4
+    public void insertarIesimo(Lista L2, int i) {
+        Nodo p = L2.prim;
+        int pos = i;
+        while (p != null) {
+            insertarIesimo(p.elem, pos);
+            pos++;
+            p = p.prox;
+        }
+    }
+
+    // #5
+    public void insertarIntercalado(Lista L2, Lista L3) {
+        prim = ult = null;
+        cantElem = 0;
+        Nodo p = L2.prim;
+        Nodo q = L3.prim;
+        while (p != null || q != null) {
+            if (p != null) {
+                insertarUlt(p.elem);
+                p = p.prox;
+            }
+            if (q != null) {
+                insertarUlt(q.elem);
+                q = q.prox;
+            }
+        }
+    }
+
+    // 2. Eliminar
+    // #1 
+    public void eliminarPrimNVeces(int n) {
+        for (int i = 0; i < n; i++) {
+            eliminarPrim();
+        }
+    }
+
+    // #2
+    public void eliminarIesimo(int i, int n) {
+        for (int k = 0; k < n; k++) {
+            eliminarIesimo(i);
+        }
+    }
+
+    // #3
+    public void eliminarTodo(int x) {
+        Nodo p = prim;
+        while (p != null) {
+            Nodo sig = p.prox;
+            if (p.elem == x) {
+                if (p == prim) {
+                    eliminarPrim();
+                } else if (p == ult) {
+                    eliminarUlt();
+                } else {
+                    p.ant.prox = p.prox;
+                    p.prox.ant = p.ant;
+                    cantElem--;
+                }
+            }
+            p = sig;
+        }
+    }
+
+    // #4
+    public void eliminarTodo(Lista L2) {
+        for (Nodo p = L2.prim; p != null; p = p.prox) {
+            eliminarTodo(p.elem);
+        }
+    }
+
+    // #5
+    public void eliminarTodo(Lista L2, Lista L3) {
+        for (Nodo p = L2.prim; p != null; p = p.prox) {
+            eliminarTodo(p.elem);
+        }
+        for (Nodo q = L3.prim; q != null; q = q.prox) {
+            eliminarTodo(q.elem);
+        }
+    }
+
 }
