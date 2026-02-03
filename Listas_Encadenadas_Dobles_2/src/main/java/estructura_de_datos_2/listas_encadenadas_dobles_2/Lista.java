@@ -91,6 +91,7 @@ public class Lista {
             ult = ult.ant;
             ult.prox = null;
         }
+        cantElem--;
     }
 
     public int frecuencia(int x) {
@@ -345,7 +346,7 @@ public class Lista {
             p = sig;
         }
     }
-    
+
     // 18. L1.eliminarVeces(k): ...
     public void eliminarVeces(int k) {
         Nodo p = prim;
