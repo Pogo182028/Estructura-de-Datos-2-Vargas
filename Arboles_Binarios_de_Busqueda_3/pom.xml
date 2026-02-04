@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <exec.mainClass>estructura_de_datos_2.arboles_binarios_de_busqueda_3.Arboles_Binarios_de_Busqueda_3</exec.mainClass>
     </properties>
 </project>
