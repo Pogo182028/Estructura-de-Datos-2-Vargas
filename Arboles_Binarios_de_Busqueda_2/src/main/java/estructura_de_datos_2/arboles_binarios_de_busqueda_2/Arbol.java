@@ -167,6 +167,9 @@ public class Arbol {
 
     // 11. A1.menor() : Método que devuelve el elemento menor del árbol A1.
     public int menor() {
+        if (raiz == null) {
+            return 0;
+        }
         NodoABB p = raiz;
         while (p.izq != null) {
             p = p.izq;
@@ -176,6 +179,9 @@ public class Arbol {
 
     // 12. A1.mayor() : Método que devuelve el elemento mayor del árbol A1.
     public int mayor() {
+        if (raiz == null) {
+            return 0;
+        }
         NodoABB p = raiz;
         while (p.der != null) {
             p = p.der;
